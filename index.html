@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML + CSS + JS</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <ul class="list">
+            <li class="list-item">
+              <a class="list-item__link" href="#"
+                ><img class="logo-img" src="./img/G2_Logo.png" alt="logo"
+              /></a>
+            </li>
+            </li>
+            <button class="btn" id="createBtn">Создать документ</button>
+          </ul>
+          <div class="block-btn">
+            <button class="btn" id="authButton">Войти</button>
+            <button class="btn-second" id="btn">Выйти</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="block-input">
+          <form class="form">
+            <div class="block-search">
+              <input
+                class="search-input"
+                type="text"
+                id="searchInput"
+                placeholder="Введите текст"
+              />
+            </div>
+            <div class="read">
+              <input
+                type="text"
+                id="filterName"
+                name="name"
+                class="read-input"
+                placeholder="Фильтр по названию"
+              />
+              <input
+                type="text"
+                id="filterAuthor"
+                name="author"
+                class="read-input"
+                placeholder="Фильтр по автору"
+              />
+              <input
+                type="text"
+                id="filterDate"
+                name="date"
+                class="read-input"
+                placeholder="Фильтр по дате"
+              />
+              <select
+                type="text"
+                id="filterStatus"
+                name="status"
+                class="read-select"
+                placeholder="Введите текст"
+              >
+                <option selected disabled value="">
+                  Все статусы
+                </option>
+                <option value="Готов">Готов</option>
+                <option value="Отклонен">Отклонен</option>
+                <option value="В процессе">В процессе</option>
+                <option value="Ожидает подтверждения">
+                  Ожидает подтверждения
+                </option>
+              </select>
+              <input
+                type="text"
+                id="filterDescription"
+                name="description"
+                class="read-input"
+                placeholder="Фильтр по описанию"
+              />
+
+              <div id="docModal" class="modal">
+                <div class="modal-content">
+                  <div class="block-name__close">
+                    <h2 id="docModalHeader">Создание документа</h2>
+                    <span class="close" id="closeCreateBtn">&times;</span>
+                  </div>
+                  <form>
+                    <label for="title">Название:</label>
+                    <input class="read-input" type="text" id="docName" name="title" />
+                    <label for="author">Автор:</label>
+                    <input class="read-input"class="read-input" type="text" id="docAuthor" name="author" />
+                    <label for="date">Дата:</label>
+                    <input class="read-input" type="date" id="docDate" name="date" />
+                    <label for="status">Статус документа</label>
+                    <select
+                      class="read-select"
+                      type="text"
+                      id="docStatus"
+                      name="status"
+                    >
+                      <option disabled selected value="">
+                        Все статусы
+                      </option>
+                      <option value="Готов">Готов</option>
+                      <option value="Готов">В процессе</option>
+                      <option value="Готов">Ожидает подтверждения</option>
+                      <option value="Готов">Отклонен</option>
+                    </select>
+                    <label for="description">Описание:</label>
+                    <textarea id="docDescription" name="content" class="read-input"></textarea>
+                    <label for="file">Выберите файл:</label>        
+                    <input type="file" class="input-file"/>            
+                    <input id="modalDocumentBtn" type="button" class="btn-submit" value="Создать"/>
+                  </form>
+                </div>
+              </div>
+              <input id="applyBtn" type="submit" class="filter btn-comp" value="Применить" />
+              <div id="authModal" class="modal">
+                <div class="modal-content">
+                  <div class="block-name__close">
+                    <h2 class="h2">Авторизация</h2>
+                    <span class="close" id="closeModalAuth">&times;</span>
+                  </div>
+                  <form class="form">
+                    <label for="username">Имя пользователя:</label>
+                    <input class="read-input" type="text" id="username" name="username" />
+                    <label for="password">Пароль:</label>
+                    <input class="read-input" type="password" id="password" name="password" />
+                    <div class="modal-btn">
+                      <button type="button" class="auth-btn">Войти</button>
+                      <button type="button" class="reg-btn" id="regModalBtn">
+                        Зарегистрироваться
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div id="submitModal" class="modal">
+                <div class="modal-content">
+                  <div class="block-name__close">
+                    <h2 class="h2">Отправить документ</h2>
+                    <span class="close" id="closeModalSubmit">&times;</span>
+                  </div>
+                  <form class="form">
+                    <label for="username">Почта:</label>
+                    <input class="read-input" type="email" id="emailSubmit" name="emailsubmit" />
+                      <button type="button" class="btn" id="submitEmailBtn">
+                        Отправить
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div id="regModal" class="modal">
+                <div class="modal-content">
+                  <div class="block-name__close">
+                    <h2>Регистрация</h2>
+                    <span class="close" id="closeModalReg">&times;</span>
+                  </div>
+                  <form class="form">
+                    <label for="username">Имя пользователя:</label>
+                    <input
+                      class="read-input"
+                      type="text"
+                      id="usernameReg"
+                      name="usernameReg"
+                    />
+                    <label for="email">Email:</label>
+                    <input
+                      class="read-input"
+                      type="email"
+                      id="emailReg"
+                      name="emailReg"
+                    />
+                    <label for="password">Пароль:</label>
+                    <input
+                      class="read-input"
+                      type="password"
+                      id="passwordReg"
+                      name="passwordReg"
+                    />
+                    <button type="button" class="btn-submit">
+                      Зарегистрироваться
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="wrapper">
+                <div class="modal" id="myModalBox">
+                  <label class="label" for="">Название</label>
+                  <input class="input" type="text" />
+                  <label for="">Автор</label>
+                  <input class="read-input" type="text" />
+                  <label for="">Дата</label>
+                  <input class="read-input" type="date" />
+                  <label for=""></label>
+                  <input class="read-input" type="file" />
+                  <label for=""></label>
+                  <input class="read-input" type="text" />
+                  <input class="input-submit" type="submit" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <table id="myTable">
+            <thead>
+              <thead>
+                <th></th>
+                <th>Название документа</th>
+                <th>Автор</th>
+                <th>Дата создания</th>
+                <th>Статус</th>
+                <th>Описание</th>
+                <th>Скачать</th>
+              </thead>
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+          </table>
+          <footer class="footer">
+            <div class="under-btn">
+              <button id="btnEditDocument" class="btn-submit">Редактировать</button>
+              <button id="submitBtn" class="btn-submit">Отправить</button>
+              <button id="btnDeleteDoc" class="btn-submit">Удалить</button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
